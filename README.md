@@ -376,26 +376,4 @@ amer = op.crr_tree(100, 100, 0.05, 1.0, 0.20, 0.0, op.PUT, op.AMERICAN, 500)
 
 ---
 
-## Interview talking points
 
-- **Why antithetic variates halve variance for puts and calls:** the payoff functions are  
-  monotone in S_T, so the antithetic pair (Z, −Z) generates negatively correlated payoffs;  
-  Cov(f(Z), f(−Z)) < 0, which reduces Var[(f(Z)+f(−Z))/2]. Measured: SE drops from  
-  0.0465 (standard) to 0.0328 (antithetic) at 100k paths (−30% SE, −49% variance).
-
-- **Why Sobol outperforms pseudo-random at low path counts:** Sobol sequences fill  
-  the unit hypercube more uniformly (low discrepancy), eliminating large gaps that  
-  pseudo-random draws leave at small N. Convergence rate O((log N)^d / N) vs O(1/√N).  
-  Measured: Sobol 100k gives |error| = 0.001 vs 0.037 for standard MC.
-
-- **Why American calls on non-dividend stocks are never exercised early:** early exercise  
-  forgoes the time value of the option and the interest earned on the strike. With q=0  
-  there is no carry benefit; the CRR tree confirms numerically (American = European price).
-
-- **Theta-gamma relationship:** for a delta-hedged position, P&L ≈ ½·Γ·(ΔS)² + θ·Δt.  
-  High gamma (0.0188 at ATM) means expensive carry (theta = −0.0176/day). The  
-  trade-off is explicit in the Greeks suite.
-
-- **CRR O(1/N) convergence:** error halves with each doubling of steps (100→200: 0.020→0.010,  
-  200→500: not quite halved due to odd/even oscillation — add Richardson extrapolation  
-  for faster convergence in production).
