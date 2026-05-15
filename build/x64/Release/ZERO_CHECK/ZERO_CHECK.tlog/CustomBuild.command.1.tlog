@@ -1,0 +1,10 @@
+^C:\USERS\OMBAD\OPTIONS-ENGINE\BUILD\CMAKEFILES\CEF112482BAB6E5361F2E681F8C62A77\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ombad/options-engine -BC:/Users/ombad/options-engine/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/ombad/options-engine/build/OptionsEngine.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

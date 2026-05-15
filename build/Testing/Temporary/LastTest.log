@@ -1,0 +1,191 @@
+Start testing: May 15 04:42 GMT Daylight Time
+----------------------------------------------------------
+1/2 Testing: PricerTests
+1/2 Test: PricerTests
+Command: "C:/Users/ombad/options-engine/build/tests/Release/test_pricer.exe"
+Directory: C:/Users/ombad/options-engine/build/tests
+"PricerTests" start time: May 15 04:42 GMT Daylight Time
+Output:
+----------------------------------------------------------
+=== Options Pricer Test Suite ===
+
+[Black-Scholes — ATM]
+  PASS  ATM call                                       got=10.45058357  exp=10.45058400
+  PASS  ATM put                                        got=5.57352602  exp=5.57352600
+  PASS  put-call parity ATM
+
+[Black-Scholes — ITM / OTM]
+  PASS  ITM call (S=130)                               got=35.44027067  exp=35.44027100
+  PASS  OTM call (S=70)                                got=0.44144821  exp=0.44144800
+  PASS  PCP ITM
+  PASS  PCP OTM
+
+[Black-Scholes — Continuous dividend]
+  PASS  dividend reduces call
+  PASS  PCP with dividend
+
+[Black-Scholes — Boundary conditions]
+  PASS  expired ATM call (T=0)                         got=5.00000000  exp=5.00000000
+  PASS  expired OTM call (T=0)                         got=0.00000000  exp=0.00000000
+  PASS  zero-vol call                                  got=4.87705755  exp=4.87705755
+
+[Black-Scholes — Accuracy grid vs known reference (|err| < 0.01%)] 
+  PASS  grid call S=100 K=100 T=0.25 σ=0.15           got=3.63506970  exp=3.63507000
+  PASS  grid put  S=100 K=100 T=0.25 σ=0.15           got=2.39284975  exp=2.39285000
+  PASS  grid call S=100 K=100 T=0.50 σ=0.20           got=6.88872858  exp=6.88872900
+  PASS  grid put  S=100 K=100 T=0.50 σ=0.20           got=4.41971978  exp=4.41972000
+  PASS  grid call S=100 K=110 T=1.00 σ=0.25           got=8.02638469  exp=8.02638500
+  PASS  grid put  S=100 K=110 T=1.00 σ=0.25           got=12.66162139  exp=12.66162100
+  PASS  grid call S=100 K=90 T=1.00 σ=0.25            got=16.63581012  exp=16.63581000
+  PASS  grid put  S=100 K=90 T=1.00 σ=0.25            got=4.22659100  exp=4.22659100
+  PASS  grid call S=50 K=55 T=0.50 σ=0.30             got=2.52297133  exp=2.52297100
+  PASS  grid put  S=50 K=55 T=0.50 σ=0.30             got=6.95350405  exp=6.95350400
+
+[Monte Carlo — European call convergence]
+  PASS  MC price vs B-S (500k, antithetic)             got=10.44468300  exp=10.45058357
+  PASS  CI contains B-S price
+  PASS  std_error < 0.025
+  PASS  elapsed_ms > 0
+         MC price=10.444683  bs=10.450584  se=0.014639  ms=6.8
+
+[Monte Carlo — Sobol quasi-random]
+  PASS  Sobol price vs B-S (100k)                      got=10.44939628  exp=10.45058357
+         Sobol price=10.449396  bs=10.450584  se=0.032858
+
+[Monte Carlo — Put-call parity]
+  PASS  MC put-call parity                             got=4.87650029  exp=4.87705755
+
+[Implied Volatility — Newton-Raphson]
+  PASS  IV recovery σ=0.05                            got=0.05000000  exp=0.05000000
+  PASS  IV recovery σ=0.10                            got=0.10000000  exp=0.10000000
+  PASS  IV recovery σ=0.15                            got=0.15000000  exp=0.15000000
+  PASS  IV recovery σ=0.20                            got=0.20000000  exp=0.20000000
+  PASS  IV recovery σ=0.25                            got=0.25000000  exp=0.25000000
+  PASS  IV recovery σ=0.30                            got=0.30000000  exp=0.30000000
+  PASS  IV recovery σ=0.40                            got=0.39999990  exp=0.40000000
+  PASS  IV recovery σ=0.50                            got=0.49999973  exp=0.50000000
+  PASS  IV recovery σ=0.80                            got=0.80000000  exp=0.80000000
+
+[Implied Volatility — OTM puts]
+  PASS  put IV K=80                                    got=0.25000000  exp=0.25000000
+  PASS  put IV K=90                                    got=0.25000000  exp=0.25000000
+  PASS  put IV K=100                                   got=0.25000000  exp=0.25000000
+  PASS  put IV K=110                                   got=0.25000000  exp=0.25000000
+  PASS  put IV K=120                                   got=0.25000000  exp=0.25000000
+
+[CRR Binomial Tree — European convergence]
+  PASS  CRR Euro call n=100                            got=10.43061166  exp=10.45058357
+  PASS  CRR Euro call n=200                            got=10.44059126  exp=10.45058357
+  PASS  CRR Euro call n=500                            got=10.44658514  exp=10.45058357
+
+[CRR Binomial Tree — American put > European put]
+  PASS  American put >= European put
+  PASS  Early exercise premium > 0
+         Euro=10.677456  Amer=11.974393  premium=1.296938
+
+[CRR Binomial Tree — American call == European call (no dividend)]
+  PASS  American call = European call (no div)         got=10.44658514  exp=10.44658514
+
+=== Results: 48 passed, 0 failed ===
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"PricerTests" end time: May 15 04:42 GMT Daylight Time
+"PricerTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: GreeksTests
+2/2 Test: GreeksTests
+Command: "C:/Users/ombad/options-engine/build/tests/Release/test_greeks.exe"
+Directory: C:/Users/ombad/options-engine/build/tests
+"GreeksTests" start time: May 15 04:42 GMT Daylight Time
+Output:
+----------------------------------------------------------
+=== Greeks Test Suite ===
+
+[Analytical vs Numerical — ATM call]
+  PASS  [ATM call] delta  analytical vs numerical           Δ=2.15e-07
+  PASS  [ATM call] gamma  analytical vs numerical           Δ=5.74e-09
+  PASS  [ATM call] vega   analytical vs numerical           Δ=7.59e-10
+  PASS  [ATM call] theta  analytical vs numerical           Δ=7.88e-07
+  PASS  [ATM call] rho    analytical vs numerical           Δ=1.93e-11
+
+[Analytical vs Numerical — OTM call]
+  PASS  [OTM call] delta  analytical vs numerical           Δ=2.41e-07
+  PASS  [OTM call] gamma  analytical vs numerical           Δ=7.85e-09
+  PASS  [OTM call] vega   analytical vs numerical           Δ=2.41e-09
+  PASS  [OTM call] theta  analytical vs numerical           Δ=5.92e-07
+  PASS  [OTM call] rho    analytical vs numerical           Δ=3.12e-12
+
+[Analytical vs Numerical — ITM put + dividend]
+  PASS  [ITM put+div] delta  analytical vs numerical        Δ=7.30e-08
+  PASS  [ITM put+div] gamma  analytical vs numerical        Δ=3.17e-10
+  PASS  [ITM put+div] vega   analytical vs numerical        Δ=8.27e-10
+  PASS  [ITM put+div] theta  analytical vs numerical        Δ=4.05e-07
+  PASS  [ITM put+div] rho    analytical vs numerical        Δ=7.06e-11
+
+[Analytical vs Numerical — short-dated NTM]
+  PASS  [short NTM] delta  analytical vs numerical          Δ=1.12e-06
+  PASS  [short NTM] gamma  analytical vs numerical          Δ=4.16e-07
+  PASS  [short NTM] vega   analytical vs numerical          Δ=4.42e-10
+  PASS  [short NTM] theta  analytical vs numerical          Δ=1.77e-05
+  PASS  [short NTM] rho    analytical vs numerical          Δ=1.08e-13
+
+[Delta bounds]
+  PASS  call delta in (0,1) S=70
+  PASS  put  delta in (-1,0) S=70
+  PASS  call delta in (0,1) S=90
+  PASS  put  delta in (-1,0) S=90
+  PASS  call delta in (0,1) S=100
+  PASS  put  delta in (-1,0) S=100
+  PASS  call delta in (0,1) S=110
+  PASS  put  delta in (-1,0) S=110
+  PASS  call delta in (0,1) S=130
+  PASS  put  delta in (-1,0) S=130
+
+[Delta put-call parity: Δ_call - Δ_put = e^(-qT)]
+  PASS  Δ_call - Δ_put = e^(-qT)                          Δ=0.00e+00
+
+[Gamma >= 0 for long options]
+  PASS  gamma >= 0 S=70
+  PASS  gamma >= 0 S=90
+  PASS  gamma >= 0 S=100
+  PASS  gamma >= 0 S=110
+  PASS  gamma >= 0 S=130
+
+[Gamma call == Gamma put (same parameters)]
+  PASS  gamma_call == gamma_put                             Δ=0.00e+00
+
+[Vega call == Vega put (same parameters)]
+  PASS  vega_call == vega_put                               Δ=0.00e+00
+
+[Theta <= 0 for long European options (time decay)]
+  PASS  ATM call theta < 0
+  PASS  ATM put theta < 0
+
+[Rho sign: call rho > 0, put rho < 0]
+  PASS  call rho > 0
+  PASS  put  rho < 0
+
+[Greeks known values — ATM call S=100, K=100, r=0.05, T=1, σ=0.20]
+  PASS  delta ATM call ≈ 0.6368                           Δ=3.49e-07
+  PASS  gamma ATM call ≈ 0.0188                           Δ=1.73e-08
+  PASS  vega  ATM call ≈ 0.3752                           Δ=6.53e-07
+  PASS  theta ATM call ≈ -0.0176                          Δ=4.63e-05
+  PASS  rho   ATM call ≈ 0.0053                           Δ=2.48e-07
+
+[Vanna and Volga — cross-check with finite differences]
+  PASS  vanna numerical vs analytical                       Δ=1.11e-05
+  PASS  volga numerical vs analytical                       Δ=5.62e-06
+
+=== Results: 49 passed, 0 failed ===
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"GreeksTests" end time: May 15 04:42 GMT Daylight Time
+"GreeksTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 15 04:42 GMT Daylight Time
