@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/ombad/options-engine/build/cmake_install.cmake",
+		"C:/Users/ombad/options-engine/build/tests/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
